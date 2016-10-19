@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+
+    <body>
+    <% include navbar.ejs %>
+    <br>
+    <div id="createStatus">
+        <div id="greenStatus"><strong>Success!</strong> Data successfully saved!</div>
+        <div id="redStatus"><strong>Error!</strong> Claim number already taken. </div>
+    </div>
+    <p></p>
+    <div id="pagewrapper">
+        <form id="createform">
+            Claim Number:<br>
+            <input id="claimnumber" type="text" name="claimnumber"><br><br>
+            First Name:<br>
+            <input id="firstname" type="text" name="firstname"><br><br>
+            Last Name:<br>
+            <input id="lastname" type="text" name="lastname"><br><br>
+            Email:<br>
+            <input id="email" type="text" name="email"><br><br>
+            Date:<br>
+            <input id="date" type="text" name="date"><br><br>
+            <input type="submit" value="Submit" id="submitBtn">
+            <input type="submit" value="Close" id="closeModal">
+        </form>
+
+    </div>
+
+    </body>
+
+    <!-- ********Scripts******** -->
+
+<!--
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var configg = {
+            apiKey: "AIzaSyCBLiQRYc7EX4iMgqnWTf3H4WFjF4DfXfw",
+            authDomain: "usersite-11ad7.firebaseapp.com",
+            databaseURL: "https://usersite-11ad7.firebaseio.com",
+            storageBucket: "usersite-11ad7.appspot.com",
+            messagingSenderId: "968441130185"
+        };
+        firebase.initializeApp(configg);
+    </script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="javascripts/createController.js" type="text/javascript"></script>
+
+</html>

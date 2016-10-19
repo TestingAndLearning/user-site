@@ -1,0 +1,130 @@
+body {
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  margin:0 0 .5em 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#wrapper {
+  padding-left:312px;
+  position:relative;
+}
+
+#userList {
+  margin:0 0 30px 0;
+}
+#userList table {
+  border-collapse:separate;
+  border-spacing:1px;
+  background:#CCC;
+}
+#userList table th {
+  background:#EEE;
+  font-weight:600;
+  padding:10px 20px;
+  text-align:center;
+}
+#userList table tbody {
+  padding:0; margin:0;
+  border-collapse:collapse;
+  border-spacing:0px;
+}
+#userList table td {
+  background:#FFF;
+  padding:5px 10px;
+  text-align:center;
+}
+#userList table tr {
+
+}
+
+#createStatus
+{
+  height: 20px;
+}
+
+#greenStatus
+{
+  background: rgb(223, 240, 216);
+  color: rgb(60, 118, 118);
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  display: none;
+}
+
+#redStatus
+{
+  background: rgb(242, 222, 222);
+  color: rgb(169, 68, 66);
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  display: none;
+}
+
+#userInfo {
+  width:250px;
+  position:absolute;
+  top:0; left:0;
+}
+#userInfo p {
+  padding:15px;
+  border:1px solid #CCC;
+  background:rgba(80,120,255,0.05);
+}
+
+fieldset {
+  border:0;
+  padding:0; margin:0;
+}
+
+#pagewrapper
+{
+  display: flex;
+  width: 100%;
+}
+#createform
+{
+  width: 50%;
+}
+
+#tabletest
+{
+  width: 50%;
+}
+
+#claimsList {
+  margin:0 0 30px 0;
+}
+#claimsList table {
+  border-collapse:separate;
+  border-spacing:1px;
+  background:#CCC;
+}
+#claimsList table th {
+  background:#EEE;
+  font-weight:600;
+  padding:10px 20px;
+  text-align:center;
+}
+#claimsList table tbody {
+  padding:0; margin:0;
+  border-collapse:collapse;
+  border-spacing:0px;
+}
+#claimsList table td {
+  background:#FFF;
+  padding:5px 10px;
+  text-align:center;
+}
