@@ -1,0 +1,34 @@
+#createStatus
+{
+  height: 20px;
+}
+
+#greenStatus
+{
+  background: rgb(223, 240, 216);
+  color: rgb(60, 118, 118);
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  display: none;
+}
+
+#redStatus
+{
+  background: rgb(242, 222, 222);
+  color: rgb(169, 68, 66);
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  display: none;
+}
+
+#pagewrapper
+{
+  display: flex;
+  width: 100%;
+}

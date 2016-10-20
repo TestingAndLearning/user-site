@@ -14,34 +14,47 @@ $(document).ready(function()
         var lastname = $("#lastname").val();
         var email = $("#email").val();
         var date = $("#date").val();
+           var age = $("#age").val();
+
         var usersRef = firebase.database().ref("cases/").orderByKey();
 
-        /** Checks for duplicates for claimnumber. **/
-        usersRef.once('value', function(snapshot) 
+        if(email.includes("@"))
         {
-            if(!snapshot.hasChild(claimnumber))
+            /** Checks for duplicates for claimnumber. **/
+            usersRef.once('value', function(snapshot) 
             {
-                //populated = true;
-                firebase.database().ref('cases/' + claimnumber).set(
+                if(!snapshot.hasChild(claimnumber))
                 {
-                    firstname: firstname,
-                    lastname: lastname,
-                    email : email,
-                    date : date
-                });
-                $("#redStatus").hide();
-                $("#greenStatus").show(800);
-            }
-            else
-            {
-                //repopulate = false;
-                $("#greenStatus").hide();
-                $("#redStatus").show(800);
-                alert('Claim number already exists. ');
-            }
-        });
 
-        console.log("2");
+                        console.log("has @");
+                        firebase.database().ref('cases/' + claimnumber).set(
+                        {
+                            firstname: firstname,
+                            lastname: lastname,
+                            email : email,
+                            date : date,
+                            age : age,
+                        });
+                    
+                    //populated = true;
+                    $("#redStatus").hide();
+                    $("#greenStatus").show(800);
+                }
+                else
+                {
+
+                    //repopulate = false;
+                    $("#greenStatus").hide();
+                    $("#redStatus").show(800);
+                    alert('Claim number already exists. ');
+                }
+            });
+        }
+        else
+        {
+            alert("@ does not exist in email.");
+        }  
+
 
         /** Displayed in table if not already loaded. **/
         //TODO: Look into firebase.reload(); function. 
