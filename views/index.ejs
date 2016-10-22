@@ -9,6 +9,8 @@
   <body>
   <% include navbar.ejs %>
 
+  <div id="test123"></div>
+
   <br>
     <div id="wrapper">
       <h2>List of users</h2>
@@ -16,11 +18,24 @@
         <button id="modal-opener">Create!</button>
         <p> </p>
 
+        <div id="sortBy">
+          <table>
+            <thead>
+              <th id="sortUser">Username</th>
+              <th id="sortFirst">First Name</th>
+              <th id="sortLast">Last Name</th>
+              <th id="sortEmail">Email</th>
+              <th id="sortDate">Date</th>
+              <th id="sortAge">Age.</th>
+            </thead>
+          </table>
+        </div>
+
         <div id="claimsList">
           <table>
           <!--
-            This is where table is inserted by populateTable(); 
           -->
+          </table>
         </div>
     </div>
   </body>

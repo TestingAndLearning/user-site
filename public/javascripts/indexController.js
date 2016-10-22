@@ -1,12 +1,13 @@
 $(document).ready(function()
 {
-	populateTable();
+
+	sortByKey();
 
 	$("#dialog-modal").dialog(
 	{
 		autoOpen: false,
-		height: 500,
-		width: 500, 
+		height: 600,
+		width: 600, 
 		modal: true
 	});
 
@@ -18,24 +19,73 @@ $(document).ready(function()
 
     });
 
+    $("#sortUser").click(function(event)
+    {
+        clearTable();
+        sortByKey();
+    });
+
+    $("#sortFirst").click(function(event)
+    {
+        clearTable();
+        sortByChild("firstname");
+    });
+
+    $("#sortLast").click(function(event)
+    {
+        clearTable();
+        sortByChild("lastname");
+    });
+
+    $("#sortEmail").click(function(event)
+    {
+        clearTable();
+        sortByChild("email");
+    });
+
+    $("#sortDate").click(function(event)
+    {
+        clearTable();
+        sortByChild("date");
+    });
+
+    $("#sortAge").click(function(event)
+    {
+        clearTable();
+        sortByChild("age");
+    });
+
 });
 
-function populateTable ()
+function sortByChild(toSort)
 {
-    $('#claimsList').append
-    ('<table>'+
-        '<thead>'+
-        '<th>'+ 'Username' +'</th>'+
-        '<th>'+ 'First Name' +'</th>'+
-        '<th>'+ 'Last Name' +'</th>'+
-        '<th>'+ 'Email' + '</th>'+
-        '<th>'+ 'Date' + '</th>'+
-        '<th>'+ 'Age' + '</th>'+
-        '</thead>'+
-    '</table>');
+    appendHeaders();
 
-    // Loop through users in order with the forEach() method. The callback provided
-    // to will be called synchronously with a DataSnapshot for each child:
+    var query = firebase.database().ref("cases/").orderByChild(toSort);
+    query.once("value").then(function(snapshot)
+    {
+        snapshot.forEach(function(childSnapshot) 
+        {
+            var key = childSnapshot.key;
+            var childData = childSnapshot.val();
+
+            $('#claimsList tr:last').after
+            ('<tr>'+
+                '<td>'+ key +'</td>'+
+                '<td>'+ childData["firstname"] +'</td>'+
+                '<td>'+ childData["lastname"] +'</td>'+
+                '<td>'+ childData["email"] + '</td>'+
+                '<td>'+ childData["date"] +'</td>'+
+                '<td>'+ childData["age"] +'</td>'+
+            '</tr>');
+        });
+    });
+}
+
+function sortByKey()
+{
+    appendHeaders();
+
     var query = firebase.database().ref("cases/").orderByKey();
     query.once("value").then(function(snapshot)
     {
@@ -53,8 +103,26 @@ function populateTable ()
                 '<td>'+ childData["date"] +'</td>'+
                 '<td>'+ childData["age"] +'</td>'+
             '</tr>');
-
-            //$("tr:odd").css("color", "#E4E4E4");
         });
     });
+}
+
+function clearTable()
+{
+    $("#claimsList tr").empty();
+}
+
+function appendHeaders()
+{
+    $('#claimsList').append
+    ('<table>'+
+        '<thead>'+
+        '<th>'+ 'Username' +'</th>'+
+        '<th>'+ 'First Name' +'</th>'+
+        '<th>'+ 'Last Name' +'</th>'+
+        '<th>'+ 'Email' + '</th>'+
+        '<th>'+ 'Date' + '</th>'+
+        '<th>'+ 'Age' + '</th>'+
+        '</thead>'+
+    '</table>');
 }
